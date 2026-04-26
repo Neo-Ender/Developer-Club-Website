@@ -1,30 +1,202 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>南师附中 | 开发者社团</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>南京师范大学附属中学开发者社团</title>
     <style>
+        :root {
+            --club-main: #2E4094;
+            --club-main-rgb: 46, 64, 148;
+            --club-green: #7CB342;
+            --club-green-rgb: 124, 179, 66;
+            --club-gold: #C9A96E;
+            --club-gold-rgb: 201, 169, 110;
+            --club-dark: #1A237E;
+            --bg-body: #f6f7fc;
+            --bg-card: rgba(255, 255, 255, 0.62);
+            --bg-card-hover: rgba(255, 255, 255, 0.78);
+            --bg-glass: rgba(255, 255, 255, 0.55);
+            --bg-table: rgba(255, 255, 255, 0.6);
+            --bg-quote: rgba(255, 255, 255, 0.55);
+            --bg-header: rgba(255, 255, 255, 0.72);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #6b6b85;
+            --border-subtle: rgba(46, 64, 148, 0.07);
+            --border-glass: rgba(255, 255, 255, 0.7);
+            --shadow-card: 0 4px 20px rgba(46, 64, 148, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+            --shadow-lifted: 0 22px 44px rgba(46, 64, 148, 0.11), 0 6px 14px rgba(0, 0, 0, 0.05);
+            --shadow-glow: 0 0 0 1px rgba(124, 179, 66, 0.14), 0 12px 32px rgba(124, 179, 66, 0.08);
+            --gradient-banner: linear-gradient(160deg, #141a4a 0%, #1f2b6e 25%, #2E4094 55%, #3548a0 100%);
+            --footer-bg: linear-gradient(165deg, #0d1545 0%, #1a237e 100%);
+            --footer-text: #ccd0e8;
+            --orb-opacity: 0.06;
+            --noise-opacity: 0.015;
+            --glass-reflect: rgba(255, 255, 255, 0.4);
+            --deco-geo-opacity: 0.04;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0b0e1a;
+            --bg-card: rgba(22, 26, 48, 0.65);
+            --bg-card-hover: rgba(28, 33, 58, 0.78);
+            --bg-glass: rgba(18, 21, 40, 0.55);
+            --bg-table: rgba(20, 24, 45, 0.6);
+            --bg-quote: rgba(18, 22, 42, 0.55);
+            --bg-header: rgba(14, 16, 32, 0.7);
+            --text-primary: #e2e4f0;
+            --text-secondary: #b8bcd4;
+            --text-muted: #8b8faa;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glass: rgba(255, 255, 255, 0.12);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+            --shadow-lifted: 0 22px 44px rgba(0, 0, 0, 0.3), 0 6px 14px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 0 1px rgba(124, 179, 66, 0.2), 0 12px 36px rgba(124, 179, 66, 0.12);
+            --gradient-banner: linear-gradient(160deg, #080c22 0%, #111940 25%, #1a2560 55%, #1f2d6e 100%);
+            --footer-bg: linear-gradient(165deg, #060918 0%, #0d1540 100%);
+            --footer-text: #9a9db8;
+            --orb-opacity: 0.10;
+            --noise-opacity: 0.025;
+            --glass-reflect: rgba(255, 255, 255, 0.08);
+            --deco-geo-opacity: 0.07;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", sans-serif;
-            scroll-behavior: smooth;
         }
 
-        /* 精准匹配社徽配色：深蓝主色 + 草绿点缀 + 白色底色 */
-        :root {
-            --club-main: #2E4094; /* 社徽深蓝主色 */
-            --club-green: #7CB342; /* 社徽人物衣服草绿色 */
-            --club-light: #F8F9FC; /* 浅灰背景 */
-            --club-dark: #1A237E;  /* 深蓝加深色 */
-            --card-shadow: 0 6px 20px rgba(46, 64, 148, 0.12);
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg-body);
+            transition: background 0.5s ease;
         }
 
         body {
-            background: #fff;
-            color: #333;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", -apple-system, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background:
+                radial-gradient(ellipse at 45% 5%, rgba(46, 64, 148, var(--orb-opacity)) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 92%, rgba(124, 179, 66, var(--orb-opacity)) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(201, 169, 110, calc(var(--orb-opacity) * 0.6)) 0%, transparent 45%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            isolation: isolate;
+            position: relative;
+            transition: background 0.5s ease, color 0.4s ease;
+            min-height: 100vh;
+        }
+
+        /* 全局噪点纹理 */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: var(--noise-opacity);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            transition: opacity 0.5s ease;
+        }
+
+        /* 全局鼠标光晕 */
+        .cursor-glow {
+            position: fixed;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 179, 66, 0.09) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            will-change: left, top;
+            transition: opacity 0.3s;
+        }
+
+        [data-theme="dark"] .cursor-glow {
+            background: radial-gradient(circle, rgba(124, 179, 66, 0.14) 0%, transparent 70%);
+        }
+
+        /* 几何装饰 */
+        .geo-decor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: var(--deco-geo-opacity);
+            transition: opacity 0.5s ease;
+        }
+
+        .geo-decor-1 {
+            top: 15%;
+            right: 3%;
+            width: 180px;
+            height: 180px;
+            border: 2px solid var(--club-main);
+            border-radius: 50%;
+            animation: geoFloat 16s ease-in-out infinite;
+        }
+
+        .geo-decor-2 {
+            bottom: 18%;
+            left: 2%;
+            width: 120px;
+            height: 120px;
+            border: 1.5px solid var(--club-green);
+            border-radius: 30% 70% 50% 50% / 40% 50% 50% 60%;
+            animation: geoFloat 20s ease-in-out infinite reverse;
+        }
+
+        .geo-decor-3 {
+            top: 55%;
+            right: 5%;
+            width: 70px;
+            height: 70px;
+            background: rgba(201, 169, 110, 0.3);
+            border-radius: 50%;
+            animation: geoFloat 14s ease-in-out infinite 3s;
+        }
+
+        .geo-decor-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(circle, var(--club-main) 1px, transparent 1px);
+            background-size: 28px 28px;
+            transition: opacity 0.5s ease;
+        }
+
+        [data-theme="dark"] .geo-decor-dots {
+            opacity: 0.06;
+        }
+
+        @keyframes geoFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(25px, -18px) rotate(3deg);
+            }
+
+            50% {
+                transform: translate(-12px, 20px) rotate(-2deg);
+            }
+
+            75% {
+                transform: translate(-22px, -8px) rotate(1deg);
+            }
         }
 
         /* 导航栏 */
@@ -32,433 +204,1160 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: white;
-            padding: 14px 30px;
+            padding: 12px 38px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            z-index: 999;
+            z-index: 100;
+            background: var(--bg-header);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        header.scrolled {
+            background: var(--bg-header);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            padding: 8px 38px;
+            backdrop-filter: blur(36px) saturate(200%);
+            -webkit-backdrop-filter: blur(36px) saturate(200%);
+        }
+
+        [data-theme="dark"] header {
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] header.scrolled {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 22px;
-            font-weight: bold;
+            gap: 14px;
+            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--club-main);
+            letter-spacing: 0.04em;
+            transition: color 0.4s;
         }
 
-        /* 社徽专属样式：完美适配圆形社徽 */
         .logo-area img {
-            height: 48px; /* 调整为更协调的尺寸 */
-            border-radius: 50%; /* 保持圆形展示 */
-            border: 2px solid var(--club-main); /* 社徽描边匹配主色 */
-            background: white; /* 白底衬托社徽 */
-            padding: 2px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2.5px solid var(--club-main);
+            background: white;
+            padding: 3px;
+            box-shadow: 0 0 20px rgba(46, 64, 148, 0.22);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo-area:hover img {
+            transform: rotate(-6deg) scale(1.08);
+            box-shadow: 0 0 30px rgba(46, 64, 148, 0.45), 0 0 60px rgba(124, 179, 66, 0.2);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 26px;
+            gap: 5px;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-secondary);
             font-weight: 500;
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: 0.3s;
+            padding: 8px 17px;
+            border-radius: 22px;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 20px;
+            height: 2.5px;
+            background: var(--club-green);
+            border-radius: 2px;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         nav a:hover {
-            background: var(--club-main);
-            color: white;
-            border-bottom: 2px solid var(--club-green);
+            color: var(--club-main);
+            background: rgba(46, 64, 148, 0.06);
         }
 
-        /* 横幅：渐变匹配社徽 */
+        nav a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+            width: 26px;
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-subtle);
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            color: var(--text-primary);
+            flex-shrink: 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: var(--shadow-lifted);
+            border-color: var(--club-green);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.9) rotate(-10deg);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1;
+        }
+
+        .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+        }
+
+        .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: translateY(30px) rotate(90deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: translateY(-30px) rotate(-90deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+        }
+
+        /* 横幅 */
         .banner {
-            margin-top: 70px;
-            height: 420px;
-            background: linear-gradient(135deg, var(--club-main) 0%, var(--club-dark) 100%);
+            margin-top: 72px;
+            height: 520px;
+            background: var(--gradient-banner);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 75%, rgba(124, 179, 66, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 75% 25%, rgba(201, 169, 110, 0.07) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255, 255, 255, 0.012) 80px, rgba(255, 255, 255, 0.012) 81px),
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255, 255, 255, 0.010) 80px, rgba(255, 255, 255, 0.010) 81px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        canvas#particleCanvas {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .banner h1,
+        .banner p {
+            position: relative;
+            z-index: 2;
         }
 
         .banner h1 {
-            font-size: 46px;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35), 0 0 75px rgba(124, 179, 66, 0.28);
+            animation: titleGlow 4.5s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35), 0 0 75px rgba(124, 179, 66, 0.24);
+            }
+
+            50% {
+                text-shadow: 0 4px 36px rgba(0, 0, 0, 0.5), 0 0 100px rgba(124, 179, 66, 0.45), 0 0 140px rgba(124, 179, 66, 0.2);
+            }
         }
 
         .banner h1 span {
-            color: var(--club-green); /* 绿点缀 */
+            color: var(--club-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .banner h1 span::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--club-green);
+            box-shadow: 0 0 16px var(--club-green);
+            border-radius: 2px;
         }
 
         .banner p {
             font-size: 18px;
+            opacity: 0.92;
             max-width: 700px;
-            line-height: 1.6;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
         }
 
         /* 容器 */
         .container {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 22px;
+            max-width: 1160px;
+            margin: 70px auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
         }
 
         .section {
-            margin-bottom: 70px;
+            margin-bottom: 100px;
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 34px;
+            font-weight: 700;
             color: var(--club-main);
-            margin-bottom: 28px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--club-green); /* 绿底边 */
+            margin-bottom: 38px;
+            padding-bottom: 14px;
+            border-bottom: 3px solid var(--club-green);
             display: inline-block;
+            letter-spacing: 0.04em;
+            position: relative;
+            transition: color 0.4s;
         }
 
-        /* 图片展示区 */
-        .img-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+        .section-title::before {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--club-main), transparent);
+            border-radius: 2px;
         }
 
-        .img-card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: 0.3s;
-            border: 1px solid #eee;
-        }
-
-        .img-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 24px rgba(46, 64, 148, 0.18);
-            border-color: var(--club-green);
-        }
-
-        .img-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .img-card p {
-            padding: 12px;
-            text-align: center;
-            font-weight: 500;
-            color: #444;
-            border-top: 2px solid var(--club-green);
-        }
-
-        /* 卡片 */
+        /* 卡片 - 增强毛玻璃 */
         .card-box {
-            background: white;
-            border-radius: 12px;
-            padding: 26px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 22px;
-            transition: 0.3s;
-            border-left: 4px solid var(--club-green); /* 绿左侧边 */
+            background: var(--bg-card);
+            backdrop-filter: blur(28px) saturate(170%);
+            -webkit-backdrop-filter: blur(28px) saturate(170%);
+            border-radius: 22px;
+            padding: 30px 36px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border-left: 5px solid var(--club-green);
+            border-top: 1px solid var(--border-glass);
+            border-right: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            position: relative;
+            isolation: isolate;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            overflow: hidden;
+        }
+
+        /* 玻璃反射高光 */
+        .card-box::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 160px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, var(--glass-reflect) 0%, transparent 75%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+            transition: all 0.5s ease;
+        }
+
+        /* 内部光晕 */
+        .card-box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            background: radial-gradient(circle at 80% 10%, rgba(124, 179, 66, 0.04) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: -1;
+            transition: all 0.5s ease;
         }
 
         .card-box:hover {
-            box-shadow: 0 8px 24px rgba(46, 64, 148, 0.16);
-            transform: translateX(5px);
+            transform: translateX(8px) translateY(-3px);
+            box-shadow: var(--shadow-lifted), var(--shadow-glow);
+            border-left-color: #8cc34b;
+            background: var(--bg-card-hover);
+            border-top-color: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="dark"] .card-box:hover {
+            border-top-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .card-box:hover::before {
+            top: -20%;
+            left: -10%;
+            opacity: 0.9;
         }
 
         .card-box h3 {
             color: var(--club-main);
-            margin-bottom: 14px;
-            font-size: 20px;
+            margin-bottom: 16px;
+            font-size: 1.35rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s;
         }
 
         .card-box h3::before {
             content: "";
             width: 6px;
-            height: 20px;
+            height: 26px;
             background: var(--club-green);
-            display: inline-block;
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(124, 179, 66, 0.5);
+            flex-shrink: 0;
         }
 
         .card-box p {
-            line-height: 1.7;
-            color: #555;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s;
         }
 
-        /* 学年规划表格 */
+        .card-box strong {
+            color: var(--club-main);
+            font-weight: 700;
+        }
+
+        /* 图片网格 */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+            margin: 40px 0;
+        }
+
+        .img-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-card);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid var(--border-glass);
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .img-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: skewX(-14deg);
+            transition: left 0.7s ease;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .img-card:hover::before {
+            left: 135%;
+        }
+
+        .img-card:hover {
+            transform: translateY(-10px) rotateX(2deg) scale(1.02);
+            box-shadow: var(--shadow-lifted), 0 0 0 2px rgba(124, 179, 66, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .img-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .img-card p {
+            padding: 16px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--club-main);
+            background: var(--bg-card);
+            border-top: 2px solid var(--club-green);
+            letter-spacing: 0.04em;
+            position: relative;
+            z-index: 4;
+            transition: all 0.4s;
+        }
+
+        /* 表格 */
         .plan-table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 10px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            background: var(--bg-table);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-
-        .plan-table th, .plan-table td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-glass);
+            transition: all 0.4s;
         }
 
         .plan-table th {
-            background: var(--club-main);
+            background: linear-gradient(135deg, #1f2b6e, #3548a0);
             color: white;
+            padding: 20px 26px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
         }
 
-        .plan-table tr:hover {
-            background: var(--club-light);
+        .plan-table td {
+            padding: 18px 26px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            transition: all 0.35s;
         }
 
-        /* 社员语录 */
+        .plan-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .plan-table tbody tr {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .plan-table tbody tr:hover {
+            background: rgba(124, 179, 66, 0.05);
+            transform: scale(1.015);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] .plan-table tbody tr:hover {
+            background: rgba(124, 179, 66, 0.08);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 语录 */
         .quote {
-            background: var(--club-light);
-            border-left: 5px solid var(--club-green);
-            padding: 20px;
-            margin: 16px 0;
-            border-radius: 8px;
+            background: var(--bg-quote);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 6px solid var(--club-green);
+            padding: 26px 30px;
+            margin: 22px 0;
+            border-radius: 0 18px 18px 0;
             font-style: italic;
-            line-height: 1.7;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            border-top: 1px solid var(--border-glass);
+            border-right: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            overflow: hidden;
+        }
+
+        .quote::before {
+            content: "";
+            position: absolute;
+            top: -16px;
+            left: 16px;
+            font-size: 115px;
+            color: rgba(124, 179, 66, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+            transition: color 0.4s;
+        }
+
+        [data-theme="dark"] .quote::before {
+            color: rgba(124, 179, 66, 0.08);
+        }
+
+        .quote:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lifted), var(--shadow-glow);
+            background: var(--bg-card-hover);
+        }
+
+        .quote p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-primary);
+            transition: color 0.4s;
         }
 
         .quote span {
             display: block;
-            margin-top: 10px;
+            margin-top: 16px;
             text-align: right;
+            font-weight: 700;
             color: var(--club-main);
-            font-weight: bold;
+            font-style: normal;
+            letter-spacing: 0.04em;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s;
         }
 
         /* 页脚 */
         footer {
-            background: var(--club-dark);
-            color: white;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             text-align: center;
-            padding: 36px 20px;
-            margin-top: 40px;
+            padding: 52px 24px;
+            margin-top: 70px;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--club-green), var(--club-gold), var(--club-green), transparent);
         }
 
         footer h3 {
             color: var(--club-green);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            transition: color 0.4s;
+        }
+
+        /* 返回顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--club-main);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(46, 64, 148, 0.35);
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(24px);
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background: #3548a0;
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(46, 64, 148, 0.5);
+        }
+
+        /* 滚动动画 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 16px;
+            }
+
+            header.scrolled {
+                padding: 7px 16px;
+            }
+
+            .logo-area {
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .logo-area img {
+                height: 34px;
+                border-width: 2px;
+                padding: 2px;
+            }
+
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+                border-radius: 16px;
+            }
+
+            .theme-toggle {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+
+            .banner {
+                height: 380px;
+                margin-top: 60px;
+            }
+
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            .banner p {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 16px;
+                margin: 45px auto;
+            }
+
+            .section {
+                margin-bottom: 60px;
+            }
+
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 24px;
+            }
+
+            .card-box {
+                padding: 22px 20px;
+                border-radius: 16px;
+            }
+
+            .card-box::after {
+                border-radius: 16px;
+            }
+
+            .quote {
+                padding: 20px 18px;
+            }
+
+            .quote::before {
+                font-size: 70px;
+                top: -6px;
+                left: 10px;
+            }
+
+            .img-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .plan-table th,
+            .plan-table td {
+                padding: 12px 14px;
+                font-size: 0.8rem;
+            }
+
+            .geo-decor-1,
+            .geo-decor-2,
+            .geo-decor-3 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 26px;
+            }
+
+            .banner {
+                height: 300px;
+            }
+
+            nav a {
+                font-size: 0.68rem;
+                padding: 5px 7px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- 全局鼠标光晕 -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- 几何装饰 -->
+    <div class="geo-decor geo-decor-1"></div>
+    <div class="geo-decor geo-decor-2"></div>
+    <div class="geo-decor geo-decor-3"></div>
+    <div class="geo-decor-dots"></div>
 
-<!-- 导航栏：左侧社徽 + 标题 -->
-<header>
-    <div class="logo-area">
-        <!-- 社徽图片：已替换为你提供的高清社徽 -->
-        <img src="图片\社徽.png" alt="南师附中开发者社团社徽">
-        南师附中开发者社团
+    <!-- 导航栏 -->
+    <header id="mainHeader">
+        <div class="logo-area">
+            <img src="图片\社徽.png" alt="社徽" loading="eager">
+            南师附中开发者社团
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">社团简介</a></li>
+                <li><a href="#activity">特色活动</a></li>
+                <li><a href="#images">社团风采</a></li>
+                <li><a href="#plan">学年规划</a></li>
+                <li><a href="#future">未来展望</a></li>
+                <li><a href="#quote">社员心声</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式" title="切换主题">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- 横幅 -->
+    <div class="banner" id="banner">
+        <canvas id="particleCanvas"></canvas>
+        <h1>南京师范大学附属中学<span>开发者社团</span></h1>
+        <p>创造新事物 · 探索编程世界 | 南京师范大学附属中学</p>
+        <p>成立于2013年，热爱编程、乐于分享、共同成长</p>
     </div>
-    <nav>
-        <ul>
-            <li><a href="#about">社团简介</a></li>
-            <li><a href="#activity">特色活动</a></li>
-            <li><a href="#images">社团风采</a></li>
-            <li><a href="#plan">学年规划</a></li>
-            <li><a href="#future">未来展望</a></li>
-            <li><a href="#quote">社员心声</a></li>
-        </ul>
-    </nav>
-</header>
 
-<!-- 横幅 -->
-<div class="banner">
-    <h1>NSFZ<span>开发者社团</span></h1>
-    <p>创造新事物 · 探索编程世界 | 南京师范大学附属中学</p>
-    <p>成立于2013年，热爱编程、乐于分享、共同成长</p>
-</div>
-
-<div class="container">
-
-    <!-- 社团简介 -->
-    <section class="section" id="about">
-        <h2 class="section-title">社团简介</h2>
-        <div class="card-box">
-            <p>开发者社团（原软件开发社）成立于2013年，是由对编程充满热情的学生组成的团体，秉承着<strong>“创造新事物”</strong>的理念，致力于计算机科学与软件开发。</p>
-            <br>
-            <p>社团分为核心工作组与若干个开发小组，无论你是否有编程基础，无论使用何种语言，都能在这里找到探索与发展技能的平台。</p>
-        </div>
-    </section>
-
-    <!-- 特色活动 -->
-    <section class="section" id="activity">
-        <h2 class="section-title">特色活动</h2>
-
-        <div class="card-box">
-            <h3>教材编写</h3>
-            <p>为了普及编程知识，扩大招新受众，我们特地编写了一本C++与Python整合教材。这本教材旨在帮助零基础的同学们快速上手两种语言，体验到与计算机对话的魅力，同时也可以训练解决问题能力，学会编程思维，学会如何系统思考。教材涵盖C++和Python两门语言的基础语法、数据结构与算法等核心知识，并结合实际应用案例，帮助读者理解编程概念并灵活运用。教材还提供大量编程练习题和项目案例，鼓励学生动手实践，巩固所学知识，提升编程能力。</p>
-        </div>
-
-        <div class="card-box">
-            <h3>核心工作组</h3>
-            <p>开发者社团核心工作组是社团的领导和管理机构，负责社团的日常运营和发展规划。小组成员由社团内具有丰富编程经验和组织能力的学生组成，他们对社团的发展充满热情，并致力于为社团成员提供一个良好的学习和交流平台。平时由核心工作组组织社团活动，如技术讲座与项目开发等，同时还招募和培养社团成员、代表社团对外进行交流和合作等。</p>
-        </div>
-
-        <div class="card-box">
-            <h3>开发小组</h3>
-            <p>开发者社团除了核心工作组之外，还设有多个开发小组，旨在为社员提供更加细分和专业的学习和实践平台。每个开发小组都专注于特定的技术领域，由经验丰富的社员带领，为社员提供技术指导、项目实践和交流机会。</p>
-        </div>
-    </section>
-
-    <!-- 社团图片展示 -->
-    <section class="section" id="images">
-        <h2 class="section-title">社团风采</h2>
-        <div class="img-grid">
-            <div class="img-card">
-                <img src="图片\社员图片1.jpg" alt="社团老师">
-                <p>社团老师</p>
+    <div class="container">
+        <section class="section reveal" id="about">
+            <h2 class="section-title">社团简介</h2>
+            <div class="card-box reveal">
+                <p>南师附中开发者社团（原软件开发社）成立于2013年，是由对编程充满热情的学生组成的团体，秉承着<strong>"创造新事物"</strong>的理念，致力于计算机科学与软件开发。</p>
+                <br>
+                <p>社团分为核心工作组与若干个开发小组，无论你是否有编程基础，无论使用何种语言，都能在这里找到探索与发展技能的平台。</p>
             </div>
-            <div class="img-card">
-                <img src="图片\社员图片2.jpg" alt="社员编写代码">
-                <p>社员编写代码</p>
+        </section>
+
+        <section class="section reveal" id="activity">
+            <h2 class="section-title">特色活动</h2>
+            <div class="card-box reveal">
+                <h3>教材编写</h3>
+                <p>为了普及编程知识，扩大招新受众，我们特地编写了一本C++与Python整合教材。这本教材旨在帮助零基础的同学们快速上手两种语言，体验到与计算机对话的魅力，同时也可以训练解决问题能力，学会编程思维，学会如何系统思考。教材涵盖C++和Python两门语言的基础语法、数据结构与算法等核心知识，并结合实际应用案例，帮助读者理解编程概念并灵活运用。教材还提供大量编程练习题和项目案例，鼓励学生动手实践，巩固所学知识，提升编程能力。
+                </p>
             </div>
-            <div class="img-card">
-                <img src="图片\社员图片3.jpg" alt="社长发言">
-                <p>社长发言</p>
+            <div class="card-box reveal">
+                <h3>核心工作组</h3>
+                <p>开发者社团核心工作组是社团的领导和管理机构，负责社团的日常运营和发展规划。小组成员由社团内具有丰富编程经验和组织能力的学生组成，他们对社团的发展充满热情，并致力于为社团成员提供一个良好的学习和交流平台。平时由核心工作组组织社团活动，如技术讲座与项目开发等，同时还招募和培养社团成员、代表社团对外进行交流和合作等。
+                </p>
             </div>
-        </div>
-    </section>
+            <div class="card-box reveal">
+                <h3>开发小组</h3>
+                <p>开发者社团除了核心工作组之外，还设有多个开发小组，旨在为社员提供更加细分和专业的学习和实践平台。每个开发小组都专注于特定的技术领域，由经验丰富的社员带领，为社员提供技术指导、项目实践和交流机会。</p>
+            </div>
+        </section>
 
-    <!-- 学年规划 -->
-    <section class="section" id="plan">
-        <h2 class="section-title">学年规划</h2>
-        <table class="plan-table">
-            <tr>
-                <th>活动内容</th>
-                <th>课时安排</th>
-            </tr>
-            <tr>
-                <td>python基本语法</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>python进阶内容</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>提议+整理思路</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>教材编写</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>网站编写</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>整理文件，制作文档</td>
-                <td>1</td>
-            </tr>
-        </table>
-    </section>
+        <section class="section reveal" id="images">
+            <h2 class="section-title">社团风采</h2>
+            <div class="img-grid">
+                <div class="img-card reveal"><img src="图片\社员图片1.jpg" alt="社团老师" loading="lazy">
+                    <p>社团老师</p>
+                </div>
+                <div class="img-card reveal"><img src="图片\社员图片2.jpg" alt="社员编写代码" loading="lazy">
+                    <p>社员编写代码</p>
+                </div>
+                <div class="img-card reveal"><img src="图片\社员图片3.jpg" alt="社长发言" loading="lazy">
+                    <p>社长发言</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- 未来展望 -->
-    <section class="section" id="future">
-        <h2 class="section-title">未来展望</h2>
-        <div class="card-box">
-            <p>✅ 社团将加强宣传推广，打造品牌活动，吸引更多学生加入社团，壮大社团队伍。同时，社团将积极与其他社团联谊，加强合作交流，扩大社团的影响力。</p>
-            <p>✅ 社团将继续组织各类技术讲座和项目开发，帮助社员们学习新技术、提升编程能力。同时，社团鼓励社员们积极参与开源项目，为开源社区做出贡献。</p>
-            <p>✅ 社团将努力营造一种积极、向上、互助的学习氛围，鼓励社员们互相交流学习心得，共同进步。同时，社团将定期举办技术交流沙龙、编程经验分享等活动，为社员们提供一个分享经验、拓展人脉的平台。</p>
-        </div>
-    </section>
+        <section class="section reveal" id="plan">
+            <h2 class="section-title">学年规划</h2>
+            <table class="plan-table reveal">
+                <thead>
+                    <tr>
+                        <th>活动内容</th>
+                        <th>课时安排</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python 基本语法</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Python 进阶内容</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>提议 + 整理思路</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>教材编写</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>网站编写</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>整理文件，制作文档</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-    <!-- 社员心声 -->
-    <section class="section" id="quote">
-        <h2 class="section-title">社员有话说</h2>
+        <section class="section reveal" id="future">
+            <h2 class="section-title">未来展望</h2>
+            <div class="card-box reveal">
+                <p>✅ 社团将加强宣传推广，打造品牌活动，吸引更多学生加入社团，壮大社团队伍。同时，社团将积极与其他社团联谊，加强合作交流，扩大社团的影响力。</p>
+                <p>✅ 社团将继续组织各类技术讲座和项目开发，帮助社员们学习新技术、提升编程能力。同时，社团鼓励社员们积极参与开源项目，为开源社区做出贡献。</p>
+                <p>✅ 社团将努力营造一种积极、向上、互助的学习氛围，鼓励社员们互相交流学习心得，共同进步。同时，社团将定期举办技术交流沙龙、编程经验分享等活动，为社员们提供一个分享经验、拓展人脉的平台。</p>
+            </div>
+        </section>
 
-        <div class="quote">
-            开发程序是个愉快的活动，从设计框架，再到落实于代码，都是在以计算机的思维与它交流。从想法到实现，编程的魅力随之为我们所领略。<br>
-            “再一次轻敲键盘，这是只属于开发者们的浪漫。”
-            <span>——2023级社长 唐知非</span>
-        </div>
+        <section class="section reveal" id="quote">
+            <h2 class="section-title">社员有话说</h2>
+            <div class="quote reveal">
+                <p>键底春秋不问年，一行代码一方天。</p>
+                <p>删繁就简求真义，重构人间未竟篇。</p><span>2025级社长 汪宁</span>
+            </div>
+            <div class="quote reveal">
+                无论你是零基础的编程小白，还是有基础的技术爱好者，都能在这里找到属于自己的舞台，用代码书写热爱，用技术创造无限可能。期待与你相遇，共赴这场属于开发者的探索征程！<span>2025级副社长 张启</span>
+            </div>
+            <div class="quote reveal">
+                开发程序是个愉快的活动，从设计框架，再到落实于代码，都是在以计算机的思维与它交流。从想法到实现，编程的魅力随之为我们所领略。<br>"再一次轻敲键盘，这是只属于开发者们的浪漫。"<span>2023级社长
+                    唐知非</span></div>
+            <div class="quote reveal">
+                加入开发者社团核心组，我深刻体会到编程是解谜与创造的完美结合。每段代码都像解锁新世界的钥匙，在团队协作中攻克技术难点时，思维碰撞的火花令人振奋。<span>2024级社长 李展鸣</span></div>
+            <div class="quote reveal">开发的确是一个享受的过程。不断探索未知，并且把未知转化为已知，再将其利用代码展现出来，着实能使人无比的着迷。<span>2024级社长 王宇豪</span>
+            </div>
+        </section>
+    </div>
 
-        <div class="quote">
-            加入开发者社团核心组，我深刻体会到编程是解谜与创造的完美结合。每段代码都像解锁新世界的钥匙，在团队协作中攻克技术难点时，思维碰撞的火花令人振奋。
-            <span>——2024级核心组 李展鸣</span>
-        </div>
+    <footer>
+        <h3>南京师范大学附属中学开发者社团</h3>
+        <p>创造新事物 · 代码点亮未来</p><br>
+        <p>© 2026 High School Affiliated to Nanjing Normal University Developer Club</p>
+    </footer>
 
-        <div class="quote">
-            开发的确是一个享受的过程。不断探索未知，并且把未知转化为已知，再将其利用代码展现出来，着实能使人无比的着迷。
-            <span>——2024级社长 王宇豪</span>
-        </div>
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
 
-        <div class="quote">
-            
-            <span>——2025级社长 汪宁</span>
-        </div>
-        
-        <div class="quote">
-            对我而言，编程从来不是冰冷的字符堆砌，而是用逻辑搭建世界、用创意点亮生活的奇妙旅程。从一行行代码到一个个可运行的项目，每一次调试、每一次优化，都是自我成长的见证。在开发者社，你不仅能解锁从前端到后端、从算法到项目的全栈技能，更能遇见一群志同道合的伙伴：我们一起攻克难题、一起打造实用工具、一起参与开源项目，在思维碰撞中突破边界，在团队协作中收获成长。这里没有枯燥的灌输，只有自由的探索；没有孤军奋战的疲惫，只有并肩前行的温暖。无论你是零基础的编程小白，还是有基础的技术爱好者，都能在这里找到属于自己的舞台，用代码书写热爱，用技术创造无限可能。期待与你相遇，共赴这场属于开发者的探索征程！
-            <span>——2025级副社长 张启</span>
-        </div>
+    <script>
+        (function () {
+            // ========== 主题切换 ==========
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
 
-        <div class="quote">
-            在开发与开发者社团里，我收获的不只是技术，更是把想法一步步变成现实的成就感。这里有认真又有趣的伙伴，也有一起交流、一起尝试、一起成长的氛围。希望下一届的同学们大胆加入，在这里找到热爱，做出属于自己的作品。
-            <span>——2025级核心组 魏伯炎</span>
-        </div>
-    </section>
+            // 从localStorage读取或检测系统偏好
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-</div>
-
-<!-- 页脚 -->
-<footer>
-    <h3>南师附中开发者社团</h3>
-    <p>创造新事物 · 代码点亮未来</p>
-    <br>
-    <p>© 2026 Nanjing Normal University High School Developer Club</p>
-</footer>
-
-<script>
-    // 平滑滚动+导航交互优化
-    document.querySelectorAll('nav a').forEach(a => {
-        a.addEventListener('click', e => {
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
             }
-        });
-    });
 
-    // 滚动时导航栏样式微调
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.style.background = 'var(--club-light)';
-            header.style.boxShadow = '0 4px 15px rgba(46, 64, 148, 0.1)';
-        } else {
-            header.style.background = 'white';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)';
-        }
-    });
-</script>
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                // 粒子颜色跟随主题微调
+                initParticles();
+            });
 
+            // 监听系统主题变化
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                    initParticles();
+                }
+            });
+
+            // ========== 鼠标光晕 ==========
+            const glow = document.getElementById('cursorGlow');
+            document.addEventListener('mousemove', (e) => {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            });
+
+            // ========== 导航栏 ==========
+            const header = document.getElementById('mainHeader');
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                const y = window.scrollY;
+                header.classList.toggle('scrolled', y > 60);
+                backToTop.classList.toggle('show', y > 600);
+            }, { passive: true });
+
+            // ========== 平滑滚动 ==========
+            document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+                a.addEventListener('click', e => {
+                    const href = a.getAttribute('href');
+                    if (!href || !href.startsWith('#')) return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = header.offsetHeight + 20;
+                        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // ========== 滚动显示动画 ==========
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -25px 0px' });
+            revealElements.forEach(el => observer.observe(el));
+
+            // ========== 卡片3D倾斜 ==========
+            const cards = document.querySelectorAll('.card-box');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -3.5;
+                    const rotateY = ((x - centerX) / centerX) * 3.5;
+                    card.style.transform =
+                        `translateX(8px) translateY(-3px) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+
+            // ========== Canvas 粒子系统 ==========
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouse = { x: -1000, y: -1000 };
+            const banner = document.getElementById('banner');
+            let animFrameId;
+
+            function resizeCanvas() {
+                const rect = banner.getBoundingClientRect();
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = rect.width * dpr;
+                canvas.height = rect.height * dpr;
+                canvas.style.width = rect.width + 'px';
+                canvas.style.height = rect.height + 'px';
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.scale(dpr, dpr);
+            }
+
+            function getParticleColor() {
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                return {
+                    white: isDark ? 'rgba(200,210,240,' : 'rgba(255,255,255,',
+                    green: isDark ? 'rgba(140,210,80,' : 'rgba(124,179,66,',
+                    lineColor: isDark ? 'rgba(180,200,240,' : 'rgba(255,255,255,',
+                };
+            }
+
+            function initParticles() {
+                particles = [];
+                const rect = banner.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+                for (let i = 0; i < 85; i++) {
+                    particles.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        vx: (Math.random() - 0.5) * 0.45,
+                        vy: (Math.random() - 0.5) * 0.45 - 0.15,
+                        r: Math.random() * 2.5 + 0.8,
+                        alpha: Math.random() * 0.65 + 0.3,
+                        isGreen: Math.random() < 0.22,
+                    });
+                }
+            }
+
+            function draw() {
+                const rect = banner.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+                const colors = getParticleColor();
+                ctx.clearRect(0, 0, w * (window.devicePixelRatio || 1), h * (window.devicePixelRatio || 1));
+
+                particles.forEach(p => {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const forceRange = 100;
+                    if (dist < forceRange && mouse.x > 0) {
+                        const angle = Math.atan2(dy, dx);
+                        const force = (forceRange - dist) / forceRange * 0.09;
+                        p.vx += Math.cos(angle) * force;
+                        p.vy += Math.sin(angle) * force;
+                    }
+                    p.vx *= 0.997;
+                    p.vy *= 0.997;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -10) p.x = w + 10;
+                    if (p.x > w + 10) p.x = -10;
+                    if (p.y < -10) p.y = h + 10;
+                    if (p.y > h + 10) p.y = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    const color = p.isGreen ? colors.green : colors.white;
+                    ctx.fillStyle = color + p.alpha.toFixed(3) + ')';
+                    ctx.fill();
+
+                    if (p.r > 1.3) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r * 2.2, 0, Math.PI * 2);
+                        ctx.fillStyle = color + (p.alpha * 0.22).toFixed(3) + ')';
+                        ctx.fill();
+                    }
+                });
+
+                // 连线
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 105) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = colors.lineColor + ((1 - dist / 105) * 0.1).toFixed(3) + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                animFrameId = requestAnimationFrame(draw);
+            }
+
+            banner.addEventListener('mousemove', (e) => {
+                const rect = banner.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            banner.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+            });
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+
+            resizeCanvas();
+            initParticles();
+            if (animFrameId) cancelAnimationFrame(animFrameId);
+            draw();
+        })();
+    </script>
 </body>
+
 </html>
